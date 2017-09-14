@@ -1,0 +1,42 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# Lendable and Malaria
+_An in-depth examination of the effect of malaria on loan repayment in Sub-Saharan Africa_
+
+
+# Purpose
+
+This code repository serves as the "research compendium" for the analysis of bla bla blamalaria control, and worker absenteeism and productivity data. The purpose of this repository - which takes the form of a fully documented R package - is "to integrate the computations and code used in data analyses, methodological descriptions, simulations, etc. with the documents that describe and rely on them" ([Gentleman and Lang, 2004](http://biostats.bepress.com/bioconductor/paper2/)). 
+
+
+# Instructions
+
+#### 1. Clone this repository (using the following code in bash).
+
+```
+$ git clone https://github.com/joebrew/lendable_malaria
+```
+
+#### 2. Prepare data
+
+First, youĺl need to populate your `data-raw` folder. This is where you should place those files which are not publicly available. These are:
+
+```
+├── some_data.xls
+└── no_files_here_yet.csx
+```
+
+If you do not have these files but are an authorized collaborator, email joe@lendable.io.
+

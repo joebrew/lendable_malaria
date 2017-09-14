@@ -1,0 +1,101 @@
+---
+title: Malaria's effect on loan repayment in Sub-Saharan Africa
+author: A PROPOSAL
+csl: elsevier-harvard.csl
+date: ''
+output:
+  pdf_document:
+    toc: no
+fig_width: 4
+fig_height: 2.6
+bibliography: bibliography.bib
+---
+
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, comment = NA, error= FALSE, cache = FALSE}
+# Packages
+library(tidyverse)
+library(knitr)
+library(Hmisc)
+library(brew)
+library(knitr)
+library(RColorBrewer)
+library(sp)
+library(maptools)
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=FALSE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+
+# This package
+library(malaria)
+```
+
+
+```{r, fig.align='center', fig.height = 1.5}
+# Map of Africa
+par(mar = c(0, 0, 0, 0))
+par(oma = c(0,0, 0, 0))
+africa <- malaria::africa
+africa_small <- thinnedSpatialPoly(SP = africa,
+                                     minarea = 0,
+                                     tolerance = 20,
+                                     topologyPreserve = TRUE)
+cols <- colorRampPalette(brewer.pal(9, 'Blues')[3:9])(nrow(africa_small))
+cols <- sample(cols)
+cols <- adjustcolor(cols, alpha.f = 0.8)
+plot(africa_small, col = cols, border = NA)
+```
+
+
+
+# Context
+
+
+The robust association between population and economic health is no secret. In a classic feedback loop, changes in a country's economic circumstance lead to changes in health outcomes, and vice-versa [@World1999, @Bloom2008]. However, most analyses into this association are at the population-level, since individual-level financial data has historically been scarce, small, unreliable and difficult to access. 
+
+
+In the case of malaria - the most deadly disease in history - we understand the magnitude of its burden in health terms. And rough analyses suggest that malaria makes a country 33% poorer, even after adjustment for confounders [@Sachs2002]. We also know that access to microfinance is associated with improved anti-malaria behaviors [@Tarozzi2014]. But at the individual-level, is there also a feedback loop? Does a reduction in malaria lead to improved financial behavior? 
+
+
+# The opportunity
+
+Lendable has amassed granular loan repayment data on more than a quarter million individuals living in malaria-endemic zones. These data can be compared to publicly available _Plasmodium falciparum_ incidence data [@Bhatt2015] to estimate a simple model for the effect of malaria on individual-level financial behavior. 
+
+This analysis will be relatively straightforward. But the results could be impactful since this will be the first malaria/finance study of its kind in terms of granularity and magnitude of data. 
+
+# The case for pursuing this 
+
+What follows is a brief list of reasons why pursuing this is a good idea.
+
+- We have the data already. Why not? 
+- Because of the uniqueness of our data, there is a high likelihood that we could publish this in a high-impact economics journal (which means good publicity, connections to academia, etc.). 
+- By doing a bit of publicity around the analysis, we position ourselves as thought-leaders in this field, and draw attention from impact-oriented organizations particularly. 
+- Joe has to spend a lot of his time doing this kind of stuff (publishing on malaria and economics) anyway over the next few months for his PhD (on his own dime/time). Using Lendable data is a win-win: Joe gets access to a unique dataset, Lendable gets free analysis. In other words, **there is no opportunity cost in terms of labor or capacity**.
+- There could be some interesting data side-products (predictive rainfall model, elevation and land-cover analysis, etc.) that would be carried out as part of this analysis, and useful to Lendable thereafter. 
+
+# The case against pursuing this 
+
+- This probably won't lead to any immediate, quantifiable increases in revenue for Lendable. 
+- Are there data protection / disclosure issues? 
+
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+
+# References
+
